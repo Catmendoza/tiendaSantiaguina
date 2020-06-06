@@ -146,19 +146,6 @@ input {
 .registro {
   display: flex;
 }
-.top-row-button:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-.top-row-button > div {
-  float: left;
-  width: 30%;
-  margin-right: 40%;
-}
-.top-row-button > div:last-child {
-  margin: 0;
-}
 
 .button {
   border: 0;
@@ -198,6 +185,7 @@ input {
   color: #000;
   transition: all 0.5s ease;
   cursor: pointer;
+  float: right;
 }
 
 .buttons:hover,
@@ -207,31 +195,6 @@ input {
 }
 
 .buttons-block {
-  display: block;
-  width: 100%;
-}
-.buttonss {
-  border: 0;
-  outline: none;
-  border-radius: 0;
-  padding: 5px 0;
-  font-size: 1rem;
-  font-weight: 30;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  background: rgb(245, 136, 132);
-  color: #000;
-  transition: all 0.5s ease;
-  cursor: pointer;
-}
-
-.buttonss:hover,
-.buttonss:focus {
-  background: #a11919;
-  color: #000;
-}
-
-.buttonss-block {
   display: block;
   width: 100%;
 }

@@ -2,6 +2,7 @@
 session_start();
 error_reporting(0);
 $varsesion = $_SESSION['usuario'];
+$admin = $_SESSION['admin'];
 ?>
 
 <!doctype html>
@@ -80,7 +81,7 @@ $varsesion = $_SESSION['usuario'];
                 <a class="dropdown-item" href="shirt.php">Camisas</a>
                 <a class="dropdown-item" href="sweatshirt.php">Sudaderas</a>
                 <a class="dropdown-item" href="cap.php">Gorras</a>
-                <a class="dropdown-item" href="category.php">Uniformes</a>
+                <a class="dropdown-item" href="uniform.php">Uniformes</a>
               </div>
             </li>
             <li class="nav-item">
@@ -89,6 +90,20 @@ $varsesion = $_SESSION['usuario'];
             <li class="nav-item">
               <a class="nav-link" href="contact.php">Contactanos</a>
             </li>
+            <?php
+            if ($admin) {
+              echo "<li class='nav-item dropdown'>
+              <a class='nav-link dropdown-toggle' id='dropdown05' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Productos</a>
+              <div class='dropdown-menu' aria-labelledby='dropdown05'>
+                <a class='dropdown-item' href='crearNuevo.php'>Agregar nuevo</a>
+                <a class='dropdown-item' href='productos.php'>Ver bodega</a>
+              </div>
+            </li>
+            <li class='nav-item'>
+              <a class='nav-link' href='clientes.php'>Clientes</a>
+            </li>";
+            }
+            ?>
           </ul>
 
         </div>
@@ -190,13 +205,20 @@ $varsesion = $_SESSION['usuario'];
             <div class="bio text-center">
               <img src="../images/login.png" alt="Image Placeholder" class="img-fluid">
               <div class="bio-body">
-                <h2>Inicie sesión</h2>
-                <p>
-                  Nombre de usuario:<input type="Usuario" name="user" minlength="10" required=true>
-                  Contraseña:<input type="contraseña" name="direccion" minlength="10" required=true>
-                </p>
-                <p><a href="#" class="btn btn-primary btn-sm">Ingresar</a></p>
-                <p><a href="login.php" class="btn btn-primary btn-sm" bac>Registrarse</a></p>
+                <?php
+                if (!isset($_SESSION['usuario'])) {
+                  echo "<h2>Inicie sesión</h2>";
+                  echo "<p>";
+                  echo "Nombre de usuario:<input type='text' name='username'  required=true autofocus>";
+                  echo "Contraseña:<input type='password' name='password'  required=true>";
+                  echo "</p>";
+                  echo " <p><button type='submit' class='btn btn-primary btn-sm' name='reg'>Iniciar</button></p>";
+                  echo "<p><a href='register.php' class='btn btn-primary btn-sm' bac>Registrarse</a></p>";
+                } else {
+                  echo "Bienvenido " . $_SESSION['usuario'];
+                }
+                ?>
+
               </div>
             </div>
           </div>
@@ -259,6 +281,11 @@ $varsesion = $_SESSION['usuario'];
     </div>
   </section>
 
+  <?php
+  if (isset($_SESSION['usuario'])) {
+    echo "<a class='flotante btn btn-primary btn-sm' href='../controllers/cerrarSesion.php' type='submit' name='send'>Cerrar</a>";
+  }
+  ?>
   <footer class="page-footer font-small unique-color-dark pt-4">
     <!-- Copyright -->
     <div class="footer-copyright text-center py-3">

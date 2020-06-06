@@ -1,3 +1,9 @@
+<?php
+session_start();
+error_reporting(0);
+$varsesion = $_SESSION['usuario'];
+$admin = $_SESSION['admin'];
+?>
 <!doctype html>
 <html lang="en">
 
@@ -65,7 +71,7 @@
                 <div class="collapse navbar-collapse" id="navbarMenu">
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="indexAdmin.php">Inicio</a>
+                            <a class="nav-link" href="index.php">Inicio</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categorias</a>
@@ -73,7 +79,7 @@
                                 <a class="dropdown-item" href="shirt.php">Camisas</a>
                                 <a class="dropdown-item" href="sweatshirt.php">Sudaderas</a>
                                 <a class="dropdown-item" href="cap.php">Gorras</a>
-                                <a class="dropdown-item" href="category.php">Uniformes</a>
+                                <a class="dropdown-item" href="uniform.php">Uniformes</a>
                             </div>
                         </li>
                         <li class="nav-item">
@@ -82,16 +88,20 @@
                         <li class="nav-item">
                             <a class="nav-link " href="contact.php">Contactanos</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle active" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Productos</a>
-                            <div class="dropdown-menu" aria-labelledby="dropdown05">
-                                <a class="dropdown-item active" href="crearNuevo.php">Agregar nuevo</a>
-                                <a class="dropdown-item" href="productos.php">Ver bodega</a>
+                        <?php
+                        if ($admin) {
+                            echo "<li class='nav-item dropdown'>
+                            <a class='nav-link dropdown-toggle active' id='dropdown05' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Productos</a>
+                            <div class='dropdown-menu' aria-labelledby='dropdown05'>
+                                <a class='dropdown-item' href='crearNuevo.php'>Agregar nuevo</a>
+                                <a class='dropdown-item' href='productos.php'>Ver bodega</a>
                             </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="clientes.php">Clientes</a>
-                        </li>
+                        <li class='nav-item'>
+                            <a class='nav-link ' href='clientes.php'>Clientes</a>
+                        </li>";
+                        }
+                        ?>
                     </ul>
 
                 </div>
@@ -145,9 +155,7 @@
                         </div>
                     </div>
                     <div class="top-row-button">
-                        <div>
-                            <button class="buttonss buttonss-block" name="limpiar">Limpiar</button>
-                        </div>
+
                         <div>
                             <button type="submit" class="buttons buttons-block" name="reg">Guardar</button>
                         </div>
