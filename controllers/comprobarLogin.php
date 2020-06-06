@@ -14,12 +14,7 @@ foreach ($matrizUsuario as $registro) {
     $exists = true;
     session_start();
     $_SESSION['usuario'] = $registro['use_usu'];
-    $_SESSION['foto'] = $registro['cor_usu'];
-  } else if ($registro["adm_usu"] == $username && $registro["pas_usu"] == $password) {
-    $exists = true;
-    session_start();
-    $_SESSION['usuario'] = $registro['adm_usu'];
-    $_SESSION['foto'] = $registro['cor_usu'];
+    $_SESSION['admin'] = $registro['adm_pro'] == 0;
   }
 }
 

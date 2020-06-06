@@ -2,6 +2,7 @@
 session_start();
 error_reporting(0);
 $varsesion = $_SESSION['usuario'];
+$admin = $_SESSION['admin'];
 ?>
 
 <!doctype html>
@@ -86,6 +87,22 @@ $varsesion = $_SESSION['usuario'];
             <li class="nav-item">
               <a class="nav-link" href="contact.php">Contactanos</a>
             </li>
+
+            <?php
+            if ($admin) {
+              echo "<li class='nav-item dropdown'>
+              <a class='nav-link dropdown-toggle' id='dropdown05' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Productos</a>
+              <div class='dropdown-menu' aria-labelledby='dropdown05'>
+                <a class='dropdown-item' href='crearNuevo.php'>Agregar nuevo</a>
+                <a class='dropdown-item' href='productos.php'>Ver bodega</a>
+              </div>
+            </li>
+            <li class='nav-item'>
+              <a class='nav-link' href='clientes.php'>Clientes</a>
+            </li>";
+            }
+            ?>
+
           </ul>
         </div>
       </div>
@@ -288,75 +305,32 @@ $varsesion = $_SESSION['usuario'];
 
           <div class="sidebar-box">
 
-            <div class="tab">
-              <button class="tablinks" id="#active" onclick="openCity(event, 'London')">Estudiante</button>
-              <button class="tablinks" onclick="openCity(event, 'Paris')">Administrador</button>
 
-            </div>
-            <div id="London" class="tabcontent">
-              <div class="bio text-center">
-                <form action="../controllers/comprobarLogin.php" method="post" class="form-signin">
-                  <img src="../images/login.png" alt="Image Placeholder" class="img-fluid">
-                  <div class="bio-body">
-                    <?php
-                    if (!isset($_SESSION['usuario'])) {
-                      echo "<h2>Inicie sesión como Estudiante</h2>";
-                      echo "<p>";
-                      echo "Nombre de usuario:<input type='text' name='username'  required=true autofocus>";
-                      echo "Contraseña:<input type='password' name='password'  required=true>";
-                      echo "</p>";
-                      echo " <p><button type='submit' class='button button-block' name='reg'>Iniciar</button></p>";
-                      echo "<p><a href='login.php' class='btn btn-primary btn-sm' bac>Registrarse</a></p>";
-                    } else {
-                      echo "Bienvenido " . $_SESSION['usuario'];
-                    }
-                    ?>
 
-                  </div>
-                </form>
-              </div>
+            <div class="bio text-center">
+              <form action="../controllers/comprobarLogin.php" method="post" class="form-signin">
+                <img src="../images/login.png" alt="Image Placeholder" class="img-fluid">
+                <div class="bio-body">
+                  <?php
+                  if (!isset($_SESSION['usuario'])) {
+                    echo "<h2>Inicie sesión como Estudiante</h2>";
+                    echo "<p>";
+                    echo "Nombre de usuario:<input type='text' name='username'  required=true autofocus>";
+                    echo "Contraseña:<input type='password' name='password'  required=true>";
+                    echo "</p>";
+                    echo " <p><button type='submit' class='button button-block' name='reg'>Iniciar</button></p>";
+                    echo "<p><a href='login.php' class='btn btn-primary btn-sm' bac>Registrarse</a></p>";
+                  } else {
+                    echo "Bienvenido " . $_SESSION['usuario'];
+                  }
+                  ?>
+
+                </div>
+              </form>
             </div>
 
-            <div id="Paris" class="tabcontent">
-              <div class="bio text-center">
-                <form action="../controllers/comprobarLogin.php" method="post" class="form-signin">
-                  <img src="../images/login.png" alt="Image Placeholder" class="img-fluid">
-                  <div class="bio-body">
-                    <?php
-                    if (!isset($_SESSION['usuario'])) {
-                      echo "<h2>Inicie sesión como Admin</h2>";
-                      echo "<p>";
-                      echo "Nombre de usuario:<input type='text' name='username'  required=true autofocus>";
-                      echo "Contraseña:<input type='password' name='password'  required=true>";
-                      echo "</p>";
-                      echo " <p><button type='submit' class='button button-block' name='reg' href='indexAdmin.php'>Iniciar</button></p>";
-                      echo "<p><a href='login.php' class='btn btn-primary btn-sm' bac>Registrarse</a></p>";
-                    } else {
-                      echo "Bienvenido " . $_SESSION['usuario'];
-                    }
-                    ?>
-
-                  </div>
-                </form>
-              </div>
-            </div>
           </div>
 
-          <script>
-            function openCity(evt, cityName) {
-              var i, tabcontent, tablinks;
-              tabcontent = document.getElementsByClassName("tabcontent");
-              for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].style.display = "none";
-              }
-              tablinks = document.getElementsByClassName("tablinks");
-              for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" active", "");
-              }
-              document.getElementById(cityName).style.display = "block";
-              evt.currentTarget.className += " active";
-            }
-          </script>
         </div>
         <!-- END sidebar-box -->
         <div class="sidebar-box">
@@ -435,8 +409,11 @@ $varsesion = $_SESSION['usuario'];
     </div>
   </section>
 
-
-  <a class='flotante btn btn-primary btn-sm' href='../controlador/cerrarSesion.php' type='submit' name='send'>Cerrar</a>
+  <?php
+  if (isset($_SESSION['usuario'])) {
+    echo "<a class='flotante btn btn-primary btn-sm' href='../controllers/cerrarSesion.php' type='submit' name='send'>Cerrar</a>";
+  }
+  ?>
 
   <footer class="page-footer font-small unique-color-dark pt-4">
     <!-- Copyright -->

@@ -97,38 +97,37 @@
       </li>
     </ul>
     <div class="tab-content">
-      <div id="signup">
-        <!--<form action="controlador/usuariosControlador.php" method="post">-->
-        <form action="../controllers/comprobarRegistro.php" method="post" class="form-signin">
-          <div class="top-row">
-            <div class="field-wrap">
+      <!--<form action="controlador/usuariosControlador.php" method="post">-->
+      <form action="../controllers/comprobarRegistro.php" method="post" class="form-signin">
+        <div class="top-row">
+          <div class="field-wrap">
 
-              <input type="text" required autocomplete="off" placeholder="Nombre" name="nombreRegistro" />
-            </div>
-            <div class="field-wrap">
-
-              <input type="text" required placeholder="Apellido" name="apellidoRegistro" />
-            </div>
+            <input type="text" required autocomplete="off" placeholder="Nombre" name="nombreRegistro" />
           </div>
           <div class="field-wrap">
 
-            <input type="text" required placeholder="Nombre de usuario" name="nombreUsuario" />
+            <input type="text" required placeholder="Apellido" name="apellidoRegistro" />
           </div>
-          <div class="field-wrap">
+        </div>
+        <div class="field-wrap">
 
-            <input type="email" required placeholder="Correo Electrónico" name="correoRegistro" />
-          </div>
-          <div class="field-wrap">
+          <input type="text" required placeholder="Nombre de usuario" name="nombreUsuario" />
+        </div>
+        <div class="field-wrap">
 
-            <input type="password" required placeholder="Contraseña" name="contrasenia1" />
-          </div>
-          <div class="field-wrap">
+          <input type="email" required placeholder="Correo Electrónico" name="correoRegistro" />
+        </div>
+        <div class="field-wrap">
 
-            <input type="password" required placeholder="Confirmar Contraseña" name="contrasenia2">
-          </div>
-          <button type="submit" class="button button-block" name="reg">Registrarse</button>
-        </form>
-      </div>
+          <input type="password" required placeholder="Contraseña" name="contrasenia1" />
+        </div>
+        <div class="field-wrap">
+
+          <input type="password" required placeholder="Confirmar Contraseña" name="contrasenia2">
+        </div>
+        <button type="submit" class="button button-block" name="reg">Registrarse</button>
+      </form>
+
     </div>
   </div>
 
