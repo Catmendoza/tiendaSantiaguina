@@ -1811,10 +1811,6 @@ blockquote p {
   border-collapse: collapse;
 }
 
-.tablita:hover {
-  box-shadow: 0px 0px 30px 8px rgba(18, 18, 18, 0.7);
-}
-
 .flotante {
   display: scroll;
   position: fixed;

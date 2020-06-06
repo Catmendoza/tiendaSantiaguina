@@ -73,7 +73,7 @@
                 <a class="dropdown-item" href="shirt.php">Camisas</a>
                 <a class="dropdown-item" href="sweatshirt.php">Sudaderas</a>
                 <a class="dropdown-item" href="cap.php">Gorras</a>
-                <a class="dropdown-item" href="category.php">Uniformes</a>
+                <a class="dropdown-item" href="uniform.php">Uniformes</a>
               </div>
             </li>
             <li class="nav-item">

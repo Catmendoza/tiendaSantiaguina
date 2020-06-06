@@ -78,7 +78,7 @@ $admin = $_SESSION['admin'];
                 <a class="dropdown-item" href="shirt.php">Camisas</a>
                 <a class="dropdown-item" href="sweatshirt.php">Sudaderas</a>
                 <a class="dropdown-item" href="cap.php">Gorras</a>
-                <a class="dropdown-item" href="category.php">Uniformes</a>
+                <a class="dropdown-item" href="uniform.php">Uniformes</a>
               </div>
             </li>
             <li class="nav-item">
@@ -245,7 +245,7 @@ $admin = $_SESSION['admin'];
               </a>
             </div>
             <div class="col-md-6">
-              <a href="category.php" class="blog-entry element-animate" data-animate-effect="fadeIn">
+              <a href="uniform.php" class="blog-entry element-animate" data-animate-effect="fadeIn">
                 <img src="../images/parte4.jpg" alt="Image placeholder">
                 <div class="blog-content-body">
                   <div class="post-meta">
@@ -302,110 +302,102 @@ $admin = $_SESSION['admin'];
         <!-- END main-content -->
 
         <div class="col-md-12 col-lg-4 sidebar">
-
           <div class="sidebar-box">
-
-
-
             <div class="bio text-center">
               <form action="../controllers/comprobarLogin.php" method="post" class="form-signin">
                 <img src="../images/login.png" alt="Image Placeholder" class="img-fluid">
                 <div class="bio-body">
                   <?php
                   if (!isset($_SESSION['usuario'])) {
-                    echo "<h2>Inicie sesión como Estudiante</h2>";
+                    echo "<h2>Inicie sesión</h2>";
                     echo "<p>";
                     echo "Nombre de usuario:<input type='text' name='username'  required=true autofocus>";
                     echo "Contraseña:<input type='password' name='password'  required=true>";
                     echo "</p>";
-                    echo " <p><button type='submit' class='button button-block' name='reg'>Iniciar</button></p>";
-                    echo "<p><a href='login.php' class='btn btn-primary btn-sm' bac>Registrarse</a></p>";
+                    echo " <p><button type='submit' class='btn btn-primary btn-sm' name='reg'>Iniciar</button></p>";
+                    echo "<p><a href='register.php' class='btn btn-primary btn-sm' bac>Registrarse</a></p>";
                   } else {
                     echo "Bienvenido " . $_SESSION['usuario'];
                   }
                   ?>
-
                 </div>
               </form>
             </div>
-
           </div>
-
-        </div>
-        <!-- END sidebar-box -->
-        <div class="sidebar-box">
-          <h3 class="heading">Eventos</h3>
-          <div class="post-entry-sidebar">
-            <ul>
-              <li>
-                <a href="../images/lanza.png">
-                  <img src="../images/lanza.png" alt="Image placeholder" class="mr-4">
-                  <div class="text">
-                    <h4>Lanzamiento de la Tercera coleccion de la tienda Santiaguina</h4>
-                    <div class="post-meta">
-                      <span class="mr-2">
-                        <script>
-                          document.write(fecha);
-                        </script>
-                      </span>
+          <div class="sidebar-box">
+            <h3 class="heading">Eventos</h3>
+            <div class="post-entry-sidebar">
+              <ul>
+                <li>
+                  <a href="../images/lanza.png">
+                    <img src="../images/lanza.png" alt="Image placeholder" class="mr-4">
+                    <div class="text">
+                      <h4>Lanzamiento de la Tercera coleccion de la tienda Santiaguina</h4>
+                      <div class="post-meta">
+                        <span class="mr-2">
+                          <script>
+                            document.write(fecha);
+                          </script>
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="../images/bata.png">
-                  <img src="../images/bata.png" alt="Image placeholder" class="mr-4">
-                  <div class="text">
-                    <h4>Lanzamiento de las batas Santiaguinas</h4>
-                    <div class="post-meta">
-                      <span class="mr-2">
-                        <script>
-                          document.write(fecha);
-                        </script>
-                      </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="../images/bata.png">
+                    <img src="../images/bata.png" alt="Image placeholder" class="mr-4">
+                    <div class="text">
+                      <h4>Lanzamiento de las batas Santiaguinas</h4>
+                      <div class="post-meta">
+                        <span class="mr-2">
+                          <script>
+                            document.write(fecha);
+                          </script>
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="../images/gor.png">
-                  <img src="../images/gor.png" alt="Image placeholder" class="mr-4">
-                  <div class="text">
-                    <h4>Descuentos en gorras Santiaguinas</h4>
-                    <div class="post-meta">
-                      <span class="mr-2">
-                        <script>
-                          document.write(fecha);
-                        </script>
-                      </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="../images/gor.png">
+                    <img src="../images/gor.png" alt="Image placeholder" class="mr-4">
+                    <div class="text">
+                      <h4>Descuentos en gorras Santiaguinas</h4>
+                      <div class="post-meta">
+                        <span class="mr-2">
+                          <script>
+                            document.write(fecha);
+                          </script>
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <!-- END sidebar-box -->
-
-        <div class="sidebar-box">
-          <h3 class="heading">Ubicate</h3>
-          <a href="maps.php" class="blog-entry element-animate" data-animate-effect="fadeIn">
-            <img src="../images/mapa.png" alt="Image placeholder">
-            <div class="blog-content-body">
-              <div class="post-meta">
-                <span class="category">Ubicate</span>
-                <span class="mr-2">
-                  <script>
-                    document.write(fecha);
-                  </script>
-                </span>
-              </div>
-              <h2>Como llegar a la tienda Santiaguina</h2>
+                  </a>
+                </li>
+              </ul>
             </div>
-          </a>
+          </div>
+          <div class="sidebar-box">
+            <h3 class="heading">Ubicate</h3>
+            <a href="maps.php" class="blog-entry element-animate" data-animate-effect="fadeIn">
+              <img src="../images/mapa.png" alt="Image placeholder">
+              <div class="blog-content-body">
+                <div class="post-meta">
+                  <span class="category">Ubicate</span>
+                  <span class="mr-2">
+                    <script>
+                      document.write(fecha);
+                    </script>
+                  </span>
+                </div>
+                <h2>Como llegar a la tienda Santiaguina</h2>
+              </div>
+            </a>
+          </div>
         </div>
+        <!-- END sidebar-box -->
 
       </div>
+
     </div>
   </section>
 

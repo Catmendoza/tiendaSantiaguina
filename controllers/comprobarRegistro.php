@@ -18,7 +18,7 @@ if ($contrasenia1 == $contrasenia2) {
 		if ($registro["cor_usu"] == $correoRegistro) {
 			echo '<script type="text/javascript">
     				alert("Este correo ya existe...");
-    				window.location.href="../views/login.php";
+    				window.location.href="../views/register.php";
     			</script>';
 			return;
 		}
@@ -32,6 +32,6 @@ if ($contrasenia1 == $contrasenia2) {
 } else {
 	echo '<script type="text/javascript">
     				alert("las contraseñas no son iguales");
-    				window.location.href="../views/login.php";
+    				window.location.href="../views/register.php";
     			</script>';
 }

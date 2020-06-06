@@ -2,6 +2,7 @@
 session_start();
 error_reporting(0);
 $varsesion = $_SESSION['usuario'];
+$admin = $_SESSION['admin'];
 ?>
 
 <!doctype html>
@@ -72,7 +73,7 @@ $varsesion = $_SESSION['usuario'];
                 <a class="dropdown-item" href="shirt.php">Camisas</a>
                 <a class="dropdown-item" href="sweatshirt.php">Sudaderas</a>
                 <a class="dropdown-item" href="cap.php">Gorras</a>
-                <a class="dropdown-item" href="category.php">Uniformes</a>
+                <a class="dropdown-item" href="uniform.php">Uniformes</a>
               </div>
 
             </li>
@@ -83,6 +84,20 @@ $varsesion = $_SESSION['usuario'];
             <li class="nav-item">
               <a class="nav-link" href="contact.php">Contactanos</a>
             </li>
+            <?php
+            if ($admin) {
+              echo "<li class='nav-item dropdown'>
+              <a class='nav-link dropdown-toggle' id='dropdown05' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Productos</a>
+              <div class='dropdown-menu' aria-labelledby='dropdown05'>
+                <a class='dropdown-item' href='crearNuevo.php'>Agregar nuevo</a>
+                <a class='dropdown-item' href='productos.php'>Ver bodega</a>
+              </div>
+            </li>
+            <li class='nav-item'>
+              <a class='nav-link' href='clientes.php'>Clientes</a>
+            </li>";
+            }
+            ?>
           </ul>
 
         </div>
@@ -138,7 +153,11 @@ $varsesion = $_SESSION['usuario'];
         </table>
       </div>
   </section>
-
+  <?php
+  if (isset($_SESSION['usuario'])) {
+    echo "<a class='flotante btn btn-primary btn-sm' href='../controllers/cerrarSesion.php' type='submit' name='send'>Cerrar</a>";
+  }
+  ?>
 
   <footer class="page-footer font-small unique-color-dark pt-4">
     <!-- Copyright -->
